@@ -98,14 +98,14 @@
     const clickHandler = () => {
       window.removeEventListener('click', clickHandler);
       window.removeEventListener('keydown', keyHandler);
-      if (bgAudio) { try { bgAudio.volume = 0.1; bgAudio.play().catch(()=>{}); } catch(e){} }
+      if (bgAudio) { try { bgAudio.volume = 0.05; bgAudio.play().catch(()=>{}); } catch(e){} }
       finishBoot();
     };
     const keyHandler = (e) => {
       if (e.key === 'Enter') {
         window.removeEventListener('click', clickHandler);
         window.removeEventListener('keydown', keyHandler);
-        if (bgAudio) { try { bgAudio.volume = 0.1; bgAudio.play().catch(()=>{}); } catch(e){} }
+        if (bgAudio) { try { bgAudio.volume = 0.05; bgAudio.play().catch(()=>{}); } catch(e){} }
         finishBoot();
       }
     };
