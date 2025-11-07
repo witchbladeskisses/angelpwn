@@ -198,7 +198,7 @@
     }
     const storyWrap = toodaPanel.querySelector('.story');
     if (storyWrap) {
-      const narrative = `On the 9th, I warned a "close" associate to Doxbin moderator Hardline and gave them 4 days to fix a vulnerability. After the four-day deadline passed with no action, I had no choice but to teach a lesson for the irresponsibility. On February 13, 2025, the Doxbin database was leaked. This is the message Graveyard received afterwards:`;
+      const narrative = `On February 9, I warned a close associate connected to Doxbin moderator "Hardline" and gave them four days to fix a vulnerability. After the deadline passed with no action taken, on February 13, 2025, the Doxbin database was leaked as a lesson for their irresponsibility. This is the message Graveyard received afterwards:`;
       const code = `https://186.2.171.20/login_up.php\nhttps://186.2.171.20/cp/javascript/main.js\nhttps://186.2.171.20/cp/javascript/vendors.js`;
       storyWrap.innerHTML = `<p>${narrative}</p><pre><code>${code}</code></pre>`;
     }
@@ -265,8 +265,8 @@ In mid-April I launch an attack on Telegram: 2/4 DCs plus web.telegram.org go do
     const sW = citadelPanel.querySelector('.story');
     if (sW) {
       const narrativeParts = [
-        'Feb 2025 — VoIP traffic started folding. Identified a weakness around RTC data handling in Discord’s VoIP (datachannel edge behavior and session negotiation quirks). Enough to disrupt call infra. TG was affected too.',
-        'Apr - took 2/4 Telegram DCs off the board. Peak push reached 3.1 Tbps. <a href=\"#\" class=\"proof-link proof-highlight\" data-src=\"files/proof.png\">Avg user reports ~10k. Down status held ~1h. Status: ?</a>',
+        'February 2025 — I find an exploit in Discord VoIP’s RTC data and, using it, can down Discord VC offline — packet loss spikes to ~90%.',
+        'In mid-April I launch an attack on Telegram: 2/4 DCs plus web.telegram.org go down. Peak push reached 3.1 Tbps. <a href=\"#\" class=\"proof-link proof-highlight\" data-src=\"files/proof.png\">Avg user reports ~10k. Down status held ~1h. Status: ?</a>',
         'April 17 — Telegram users began reporting widespread service disruptions. The first issues appeared around 19:30 MSK, and reports on Downradar and Downdetector started rapidly increasing. Users noted messages weren’t being delivered; for some, chats and media failed to load.'
       ];
       sW.innerHTML = narrativeParts.map(p => `<p>${p}</p>`).join('');
