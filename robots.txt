@@ -1,0 +1,5 @@
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: UptimeRobot/2.0
+Disallow: /
