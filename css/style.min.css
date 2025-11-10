@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Terminal';
-  src: url('../fonts/FreeSerif.woff2') format('woff');
+  src: url('../fonts/FreeSerif.woff2') format('woff2');
 }
 
 @font-face {
@@ -272,6 +272,10 @@ body.ready {
   opacity: 0;
   transform: translateY(10px);
 }
+.menu.show {
+  animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.12s;
+}
 
 .menu-header {
   display: flex;
@@ -281,6 +285,11 @@ body.ready {
   justify-content: center;
   text-align: center;
   transform: translateY(8px);
+  opacity: 0;
+}
+.menu-header.show {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.22s;
 }
 
 
@@ -340,18 +349,6 @@ body.ready {
   100% { background-position: 0% 0; }
 }
 
-body.ready #main .menu {
-  animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.12s;
-}
-body.ready #main .menu-header {
-  animation: fadeIn 0.6s ease-out forwards;
-  animation-delay: 0.22s;
-}
-body.ready #main .menu-items {
-  animation: fadeIn 0.6s ease-out forwards;
-  animation-delay: 0.32s;
-}
 
 @keyframes shiftFlicker {
   0%,40%,44%,58%,61%,65%,69%,73%,100% { transform: skewX(0deg) skewY(0deg); }
@@ -442,7 +439,18 @@ body.ready #main .menu-items {
   100% { clip-path: inset(92% 0 0 0); }
 }
 
-.menu-items { display: flex; gap: 12px; margin-bottom: 16px; justify-content: center; opacity: 0; transform: translateY(8px); }
+.menu-items {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+}
+.menu-items.show {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.32s;
+}
 
 .menu-item {
   background: transparent;
@@ -488,6 +496,12 @@ body.ready #main .menu-items {
   opacity: 0.9;
 }
 
+.menu-item.show {
+  animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.menu-item.show:nth-child(1) { animation-delay: 0.42s; }
+.menu-item.show:nth-child(2) { animation-delay: 0.54s; }
+
 .menu-item.btn-press { animation: btnPulse 260ms ease-out; }
 .menu-item.btn-press::after { animation: btnRipple 420ms ease-out forwards; }
 
@@ -500,10 +514,6 @@ body.ready #main .menu-items {
 @keyframes btnRipple {
   to { transform: translate(-50%, -50%) scale(22); opacity: 0; }
 }
-
-body.ready #main .menu-items .menu-item { animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-body.ready #main .menu-items .menu-item:nth-child(1) { animation-delay: 0.42s; }
-body.ready #main .menu-items .menu-item:nth-child(2) { animation-delay: 0.54s; }
 
 .menu-panel {
   border: 1px solid rgba(255,255,255,0.2);
