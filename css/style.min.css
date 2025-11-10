@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Terminal';
-  src: url('../fonts/FreeSerif.woff2') format('woff2');
+  src: url('../fonts/FreeSerif.woff2') format('woff');
 }
 
 @font-face {
@@ -482,38 +482,11 @@ body.ready {
   transform: translateY(0) scale(0.98);
 }
 
-.menu-item::after {
-  content: '';
-  position: absolute;
-  left: var(--x, 50%);
-  top: var(--y, 50%);
-  width: 12px;
-  height: 12px;
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255,255,255,0.35), rgba(255,255,255,0) 70%);
-  opacity: 0.9;
-}
-
 .menu-item.show {
   animation: fadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .menu-item.show:nth-child(1) { animation-delay: 0.42s; }
 .menu-item.show:nth-child(2) { animation-delay: 0.54s; }
-
-.menu-item.btn-press { animation: btnPulse 260ms ease-out; }
-.menu-item.btn-press::after { animation: btnRipple 420ms ease-out forwards; }
-
-@keyframes btnPulse {
-  0% { box-shadow: 0 0 6px rgba(255,255,255,0.10); }
-  50% { box-shadow: 0 0 18px rgba(255,255,255,0.35); }
-  100% { box-shadow: 0 0 6px rgba(255,255,255,0.08); }
-}
-
-@keyframes btnRipple {
-  to { transform: translate(-50%, -50%) scale(22); opacity: 0; }
-}
 
 .menu-panel {
   border: 1px solid rgba(255,255,255,0.2);
