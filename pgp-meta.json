@@ -1,0 +1,18 @@
+{
+  "title": "asdwarrior",
+  "subtitle": "Verified Cryptographic Identity",
+  "fingerprint": "E5E5 6773 D70A F0E0 F3A0 2479 DEC2 B0EB 8B94 48E6",
+  "note": "All commitments by us will be formally signed by our PGP key. If you'd like for secure anonymous communication, we can exchange public keys and encrypt our communications using those PGP keys, this ensures operational security and authenticity of all communications/negotiations.",
+  "tutorialTitle": "Verification tutorial:",
+  "steps": [
+    "Import this key into your preferred PGP client",
+    "Encrypt all messages to this key before sending",
+    "Verify the fingerprint matches: ",
+    "Ensure you are communicating with us, asdwarrior."
+  ],
+  "labels": {
+    "publicKey": "PGP Public Key",
+    "copy": "Copy Key",
+    "download": "Download"
+  }
+}

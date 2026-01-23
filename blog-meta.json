@@ -1,0 +1,24 @@
+{
+  "1": {
+    "en": {
+      "title": "Discord VoIP Protocol & State Poisoning",
+      "date": "January 2026"
+    },
+    "ru": {
+      "title": "Протокол Discord VoIP и отравление состояний",
+      "date": "Январь 2026"
+    },
+    "code": "// Theoretical Payload Structure\n{\n  \"op\": 5,\n  \"d\": {\n    \"speaking\": 1,\n    \"delay\": 0,\n    \"ssrc\": 0xDEADBEEF // Target Placeholder\n  }\n}"
+  },
+  "2": {
+    "en": {
+      "title": "Operation Doxbin",
+      "date": "February 13, 2025"
+    },
+    "ru": {
+      "title": "Операция Doxbin",
+      "date": "13 Февраля, 2025"
+    },
+    "code": "https://186.2.171.20/login_up.php\nhttps://186.2.171.20/cp/javascript/main.js\nhttps://186.2.171.20/cp/javascript/vendors.js"
+  }
+}

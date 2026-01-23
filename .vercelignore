@@ -1,0 +1,21 @@
+# .vercelignore
+node_modules
+.git
+.env
+.env.local
+*.log
+.DS_Store
+README.md
+.vscode
+.idea
+
+# Ignore development/archive files
+*.zip
+*.py
+api/
+
+# Block ALL sensitive data files from deployment
+*.csv
+*.sql
+*.db
+*.sqlite

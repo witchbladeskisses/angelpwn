@@ -1,0 +1,332 @@
+<!-- @note: @asdwarrior:
+	i'm not a frontend developer so uhh i feel sorry for everyone 
+	whos familiar with frontend stuff and looking at this piece of code
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Security Headers -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <link rel="dns-prefetch" href="https://api.lanyard.rest">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <link rel="icon" href="favicon.ico">
+
+
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-wrapper">
+            <div class="loader-text">
+                <span id="loader-word-1" class="thin glitch-text" data-text="ANGELFIREWALL">ANGELFIREWALL</span>
+                <span class="loader-diamond">◇</span>
+                <span id="loader-word-2" class="bold glitch-text" data-text="SECURITY">SECURITY</span>
+            </div>
+            <div class="loader-spinner-container">
+                <div class="loader-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- New Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Terminal -->
+    <button id="terminal-toggle" class="glass-icon" title="Open terminal"><i class="fa-solid fa-terminal"></i></button>
+    <div id="terminal-window" class="glass hidden">
+        <div class="terminal-header">
+            <span id="terminal-title">root@system:~</span>
+            <div class="terminal-controls">
+                <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="terminal-body" id="cli-output">
+            <div class="cli-line">Welcome to the System Terminal. Type 'help' for commands.</div>
+        </div>
+        <div class="terminal-input-area">
+            <label for="cli-input" class="prompt">root@system:~$</label>
+            <input type="text" id="cli-input" autocomplete="off" spellcheck="false">
+        </div>
+    </div>
+
+    <!-- PGP Trigger -->
+    <button class="glass-icon pgp-trigger" id="pgp-toggle" title="PGP Identity">
+        <i class="fa-solid fa-shield-halved"></i>
+    </button>
+
+    <!-- PGP Modal -->
+    <div id="pgp-modal" class="modal pgp-modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container premium-modal-base">
+            <div class="modal-header">
+                <div class="title-group">
+                    <h2 id="pgp-modal-title" class="modal-title"></h2>
+                    <span class="modal-subtitle"></span>
+                </div>
+                <button class="modal-close" id="pgp-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="crypto-note"></p>
+
+                <div class="pgp-key-section">
+                    <div class="section-top">
+                        <span class="label"></span>
+                        <div class="actions">
+                            <button class="action-btn" id="copy-pgp-btn"></button>
+                            <button class="action-btn" id="download-pgp-btn"></button>
+                        </div>
+                    </div>
+                    <pre id="pgp-key-block"><code></code></pre>
+                </div>
+
+                <div class="tutorial-section">
+                    <h3></h3>
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Grid -->
+    <main class="bento-container">
+
+        <!-- Profile Card -->
+        <article class="card profile-card" data-tilt-js>
+            <div class="profile-content">
+                <div class="avatar-wrapper">
+                    <img id="discord-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+                    <div id="discord-status-indicator" class="status-dot offline"></div>
+                </div>
+                <div class="profile-text">
+                    <h1 id="discord-username">User</h1>
+                    <p class="bio-text">Loading bio...</p>
+                </div>
+            </div>
+            <address class="social-row">
+                <a href="#" class="social-icon" id="copy-email" title="Copy Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </address>
+        </article>
+
+        <!-- Discord Activity Card -->
+        <section class="card discord-card" data-tilt-js>
+            <header class="card-header">
+                <i class="fa-brands fa-discord"></i>
+                <span>Activity</span>
+            </header>
+            <div class="activity-content">
+                <div class="activity-info">
+                    <span id="activity-name">No Activity</span>
+                    <span id="activity-details">Idle</span>
+                    <span id="activity-state"></span>
+                    <span id="activity-time"></span>
+                </div>
+                <div class="activity-image-wrapper">
+                    <img id="activity-image" src="" alt="Activity Image" class="hidden">
+                    <div id="activity-default-icon" class="hidden">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotify Card -->
+        <section class="card spotify-card" data-tilt-js>
+            <div class="spotify-bg" id="spotify-bg"></div>
+            <header class="card-header">
+                <i class="fa-brands fa-spotify"></i>
+                <span>Listening</span>
+            </header>
+            <div class="spotify-content">
+                <div class="spotify-art-wrapper">
+                    <img id="spotify-art" src="" alt="Album Art" class="hidden">
+                    <div id="spotify-default-art">
+                        <i class="fa-brands fa-spotify"></i>
+                    </div>
+                </div>
+                <div class="spotify-info">
+                    <span id="spotify-song">Not Playing</span>
+                    <span id="spotify-artist">Spotify</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="spotify-progress"></div>
+            </div>
+        </section>
+
+        <!-- Time Card -->
+        <section class="card time-card" data-tilt-js>
+            <header class="card-header">
+                <i class="fa-regular fa-clock"></i>
+                <span>Local Time</span>
+            </header>
+            <time class="time-display" datetime="">
+                <span id="current-time">00:00:00</span>
+                <span id="current-date">Jan 01, 2026</span>
+            </time>
+        </section>
+
+        <!-- Skills Card (HP Bars) -->
+        <section class="card skills-card" data-tilt-js>
+            <header class="card-header">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Stack</span>
+            </header>
+            <div class="skills-list">
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-brands fa-cuttlefish"></i>
+                        <span>C</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                    </div>
+                </div>
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <span class="text-icon">C</span>
+                        <span>C#</span>
+                    </div>
+                    <div class="hp-bar" aria-label="Expertise level: 4 out of 5">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>Web</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cyber Security Card -->
+        <section class="card cyber-card" data-tilt-js>
+            <header class="card-header">
+                <i class="fa-solid fa-shield-virus"></i>
+                <span>Cyber Security</span>
+            </header>
+            <div class="skills-list">
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span>Red Teaming</span>
+                    </div>
+                    <div class="hp-bar" aria-label="Expertise level: 4 out of 5">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-solid fa-bug"></i>
+                        <span>Exploitation</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+                <div class="skill-entry">
+                    <div class="skill-info">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <span>Forensics</span>
+                    </div>
+                    <div class="hp-bar">
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment filled"></div>
+                        <div class="hp-segment"></div>
+                        <div class="hp-segment"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Card -->
+        <section class="card blog-card" data-tilt-js>
+            <header class="card-header">
+                <i class="fa-solid fa-pen-nib"></i>
+                <span>Blog</span>
+                <div class="blog-lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+            </header>
+            <div class="blog-list">
+                <a href="#" class="blog-item" data-id="1">
+                    <span class="blog-date">January 2026</span>
+                    <span class="blog-title">Discord VoIP Protocol & State Poisoning</span>
+                </a>
+                <a href="#" class="blog-item" data-id="2">
+                    <span class="blog-date">February 13, 2025</span>
+                    <span class="blog-title">Operation Doxbin</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div id="canvas-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"
+        integrity="sha512-5g2Nj3mqLOgClHi20oat1COW7jWvf7SyqnvwWUsMDwhjHeqeTl0C+uzjucLweruQxHbhDwiPLXlm8HBO0011pA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="earth.js?v=4"></script>
+    <script src="vanilla-tilt.min.js?v=3"></script>
+    <script type="module" src="script.js?v=4"></script>
+</body>
+
+</html>

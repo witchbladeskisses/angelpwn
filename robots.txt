@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Block Internet Archive / Wayback Machine
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# Block all other archive crawlers
+User-agent: ArchiveBot
+Disallow: /
+
+User-agent: Wget
+Disallow: /
+
+User-agent: grub-client
+Disallow: /
+
+User-agent: grab
+Disallow: /
+
+# Security - block API if exists
+User-agent: *
+Disallow: /api/
