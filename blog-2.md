@@ -1,6 +1,6 @@
 # Operation Doxbin: A Security Wake-Up Call
 
-On January 9th, I discovered a critical vulnerability in Doxbin's Obsidian backend infrastructure. Following responsible disclosure practices, I warned a close associate of Doxbin moderator Hardline and provided a four-day window to address the security flaw.
+On February 9th, I discovered a critical vulnerability in Doxbin's Obsidian backend infrastructure. Following responsible disclosure practices, I warned a close associate of Doxbin moderator Hardline and provided a four-day window to address the security flaw.
 
 After the deadline passed with no remediation action taken, the severity of the negligence demanded a response. On February 13, 2025, the Doxbin database breach was disclosed to demonstrate the real-world consequences of ignoring security warnings.
 
