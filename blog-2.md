@@ -1,4 +1,4 @@
-# 🔴 DOXBIN DATABASE BREACH
+# 🔴 Operation Doxbin
 
 On February 13, 2025, the Doxbin database was compromised through an unpatched vulnerability in the Obsidian backend infrastructure.
 
