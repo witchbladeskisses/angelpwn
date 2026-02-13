@@ -17,9 +17,9 @@ To the Doxbin administration and community:
 On February 13, 2025, the Doxbin database was compromised due to an unpatched vulnerability in your Obsidian backend. This breach occurred after repeated warnings were ignored.
 
 **Timeline:**
-- **January 9, 2025**: Critical vulnerability discovered
-- **January 9, 2025**: Disclosure made to moderator associate
-- **January 13, 2025**: 4-day remediation deadline expired
+- **February 9, 2025**: Critical vulnerability discovered
+- **February 9, 2025**: Disclosure made to moderator associate
+- **February 13, 2025**: 4-day remediation deadline expired
 - **February 13, 2025**: Database breach disclosed
 
 **Root Cause**: Backend security misconfiguration in Obsidian infrastructure
