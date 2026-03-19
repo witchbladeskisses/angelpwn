@@ -237,7 +237,7 @@ import { initBlog } from './blog.js';
         lastSpotifyData = spotify;
 
         if (bioTextEl) {
-            const newBio = (custom && custom.state) ? custom.state : "Cybersecurity enthusiast & Malware dev";
+            const newBio = (custom && custom.state) ? custom.state : "Reverse engineer & Malware dev";
             if (bioTextEl.textContent !== newBio) {
                 bioTextEl.textContent = newBio;
             }
